@@ -1,0 +1,19 @@
+app:
+  env: "development"
+  log_level: "DEBUG"
+  update_interval: 3600  # 1 hour
+
+exchange:
+  testnet: true
+  paper_trading: true
+
+trading:
+  max_daily_loss: 200    # USD
+  require_confirmation: true
+
+strategies:
+  - type: "mean_reversion"
+    bb_window: 20
+    rsi_window: 14
+    min_confidence: 0.7
+    

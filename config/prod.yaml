@@ -1,0 +1,18 @@
+app:
+  env: "production"
+  log_level: "INFO"
+  update_interval: 1800  # 30 mins
+
+exchange:
+  testnet: false
+  paper_trading: false
+
+trading:
+  max_daily_loss: 500    # USD
+  require_confirmation: false
+
+strategies:
+  - type: "momentum"
+    fast_ma: 9
+    slow_ma: 21
+    

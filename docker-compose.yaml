@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  trader:
+    build: .
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    restart: unless-stopped
+
+  dashboard:
+    image: python:3.9-slim
+    working_dir: /app
+    command: python src/dashboard.py
+    volumes:
+      - ./data:/app/data
+    ports:
+      - 8050:8050
+    depends_on:
+      - trader
